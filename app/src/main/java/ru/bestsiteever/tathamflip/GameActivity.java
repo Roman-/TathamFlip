@@ -13,6 +13,7 @@ import android.widget.TextView;
 public class GameActivity extends AppCompatActivity {
 
     private Button scrambleButton;
+    private Button backButton;
     private Button resetButton;
     private RelativeLayout winLayout;
     private TextView winTitle;
@@ -29,6 +30,7 @@ public class GameActivity extends AppCompatActivity {
         setContentView(R.layout.activity_game);
 
         scrambleButton = (Button)findViewById(R.id.btn_new_game);
+        backButton = (Button)findViewById(R.id.back_to_mm_btn);
         resetButton = (Button)findViewById(R.id.btn_reset_solve);
         //solutionButton = (Button)findViewById(R.id.btn_show_solution);
         board = (FlipBoard)findViewById(R.id.flipBoard);
@@ -75,11 +77,18 @@ public class GameActivity extends AppCompatActivity {
             scrambleButton.setEnabled(false);
             topText.setText("ready");
         });
+
+        // temporary action : reset the board and never allow timed solve again (until going back)
         resetButton.setOnClickListener(v -> {
             board.solve();
             scrambleButton.setEnabled(true);
             stats.reset();
-            topText.setText(numCellsX + "x" + numCellsY);
+            topText.setText(numCellsX + "x" + numCellsY + " sandbox");
+            winLayout.setVisibility(View.GONE);
+        });
+
+        backButton.setOnClickListener(v -> {
+            finish();
         });
 
         // begin scrambled
