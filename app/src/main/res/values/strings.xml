@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">TathamsFlip</string>
+    <string name="game_title">Tatham\'s Flip</string>
+    <string name="play_btn_text">Play</string>
+</resources>

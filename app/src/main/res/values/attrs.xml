@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="FlipBoard">
+        <attr name="border_color" format="color"/>
+        <attr name="cell_clean_color" format="color"/>
+        <attr name="cell_marked_color" format="color"/>
+    </declare-styleable>
+</resources>
